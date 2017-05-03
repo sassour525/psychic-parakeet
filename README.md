@@ -1,7 +1,7 @@
 # psychic-parakeet
 Group Project 2
 
-###Members:
+### Members:
 Kyle
 Frank
 Leigh
