@@ -1,0 +1,20 @@
+.nav-wrapper{ background-color: #01796f;
+
+}
+.calendar{
+    float: right;
+}
+
+.card{
+    float: left;
+    width: 300px;
+}
+
+
+.main{
+    background-color: #01796f;
+}
+
+.login{
+    background-color: #01796f;
+}
