@@ -16,7 +16,7 @@ module.exports = function(app) {
 
     //route to create a new user
     app.post('/api/signup', function(req, res) {
-        console.log(req.body)
+        console.log(req.body);
         db.User.create({
             name: req.body.name,
             email: req.body.email,
@@ -27,6 +27,15 @@ module.exports = function(app) {
         }).catch(function(err) {
             res.json(err);
         });;
+    });
+
+    app.get('/api/user_data', function(req, res) {
+        console.log(req.body);
+        db.User.findOne({
+            where: req.body.name
+        }).then(function(user) {
+            res.json(user);
+        });
     });
 
 };
