@@ -23,4 +23,9 @@ moduel.exports = function(app) {
     app.get('/profile', isAuthenticated, function(req, res) {
         res.sendFile(path.join(__dirname + '../views/profile.html'));
     });
+
+    //route to serve the company page
+    app.get('/company', isAuthenticated, function(req, res) {
+        res.sendFile(path.join(__dirname + '../views/company.html'));
+    });
 }
