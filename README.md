@@ -2,7 +2,9 @@
 Group Project 2
 
 ### Members:
-Kyle
-Frank
-Leigh
-Shawn
+<ul>
+<li>Kyle</li>
+<li>Frank</li>
+<li>Leigh</li>
+<li>Shawn</li>
+</ul>
