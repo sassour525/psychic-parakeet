@@ -3,8 +3,7 @@ $(document).ready(function() {
     $.get('/api/user_data').then(function(user) {
         var userData = user;
         console.log(userData);
-        $('#user-card').append('<p>Employee ID: ' + userData.id + '</p>');
-        $('#user-card').append('<p>Email: ' + userData.email + '</p>');
+        buildCard('user-card', userData);
     });
 
     //log the user out
@@ -15,4 +14,17 @@ $(document).ready(function() {
             console.log(err);
         });
     });
+
+
+    function buildCard(id, userData) {
+        $('#' + id).empty();
+        var userId = $('<p>');
+        userId.text('Employee ID: ' + userData.id);
+        var userEmail = $('<p>');
+        userEmail.text('Email: ' + userData.email);
+        console.log(userId);
+        console.log(userEmail);
+        $('#' + id).append(userId).append(userEmail);
+    }
+
 });
