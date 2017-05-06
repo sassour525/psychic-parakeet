@@ -29,5 +29,15 @@ router.post('/logout', function(req, res) {
     res.json('/');
 });
 
+router.get('/api/user-data', function(req, res) {
+    db.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(function(user) {
+        res.json(user);
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;
