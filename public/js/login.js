@@ -1,10 +1,9 @@
-$document.ready(function() {
-    var loginForm = $('login.form');
+
+$(document).ready(function() {
     var emailInput = $('input#email');
     var passwordInput = $('input#password');
 
-    //grab values from the loginForm once submitted
-    loginForm.on('submit', function(event) {
+    $(".login").on('submit', function(event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
@@ -29,7 +28,7 @@ $document.ready(function() {
         $.post('api/login', {
             email: email,
             password: password
-        }).then(function(result) {
+        }).then(function(data) {
             window.location.replace(data);
         }).catch(function(err){
             console.log(err);
