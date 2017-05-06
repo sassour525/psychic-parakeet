@@ -23,7 +23,6 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 //Override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
