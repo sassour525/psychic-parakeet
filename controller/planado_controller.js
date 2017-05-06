@@ -29,14 +29,15 @@ router.post('/logout', function(req, res) {
     res.json('/');
 });
 
-router.get('/api/user-data', function(req, res) {
-    db.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(function(user) {
-        res.json(user);
-    });
+router.get('/api/user_data', function(req, res) {
+    if (!req.user) {
+        res.json({});
+    } else {
+        res.json({
+            email: req.user.email,
+            id: req.user.id
+        });
+    }
 });
 
 // Export routes for server.js to use.
