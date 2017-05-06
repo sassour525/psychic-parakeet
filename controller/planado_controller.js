@@ -1,40 +1,31 @@
 // dependencies
 var express = require('express');
 var router = express.Router();
+var isAuthenticated = require('../config/middleware/isAuthenticated');
+var db = require("../models");
+var passport = require("../config/passport");
 
-// Import the model (burger.js) 
-//var for model 
-
-// Create routes and associated logic
-/*router.get('/', function(req, res) {
-  burger.selectAll(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    console.log(hbsObject);
-    res.render('index', hbsObject);
-  });
+router.get("/", function(req, res) {
+  if (req.user) {
+      res.redirect('/profile');
+  }
+  res.render("index");
 });
 
-router.post('/', function(req, res) {
-  burger.insertOne([
-    'burger_name'
-  ], [
-    req.body.burger_name
-  ], function(data) {
-    res.redirect('/');
-  });
+router.get('/profile', isAuthenticated, function(req, res) {
+        res.render("profile");
 });
 
-router.put('/:id', function(req, res) {
-  var condition = 'id = ' + req.params.id;
 
-  burger.updateOne({
-    devoured: true
-  }, condition, function(data) {
+router.post('/api/login', passport.authenticate("local"), function(req, res){
+    res.json('/profile');
+});
+
+//route to log the user out
+router.post('/logout', function(req, res) {
+    req.logout();
     res.redirect('/');
-  });
-});*/
+});
 
 // Export routes for server.js to use.
 module.exports = router;
