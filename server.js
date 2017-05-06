@@ -1,18 +1,26 @@
-// dependencies
-var express = require('express');
-var bodyParser = require('body-parser');
+// Requiring necessary npm packages
+var express = require("express");
+var bodyParser = require("body-parser");
+var session = require("express-session");
 var methodOverride = require('method-override');
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
-var port = process.env.PORT || 3000;
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 3000;
+var db = require("./models");
 
+// Creating express app and configuring middleware needed for authentication
 var app = express();
-
-// Serve static content for the app from the 'public' directory
-app.use(express.static(process.cwd() + '/public'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Override with POST having ?_method=DELETE
+//Override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
 // Set Handlebars as the view engine
@@ -22,10 +30,17 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Import routes to pass to the server 
-var routes = require("./controllers/planado_controller.js");
+var routes = require("./controller/planado_controller.js");
 
 app.use("/", routes);
 
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
+// Requiring our routes
+// require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
+
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("Listening on port %s.", PORT);
+  });
 });

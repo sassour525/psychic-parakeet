@@ -1,9 +1,8 @@
-$document.ready(function() {
-    var loginForm = $('login.form');
-    var emailInput = $('input#email-input');
-    var passwordInput = $('input#password-input');
+$(document).ready(function() {
+    var emailInput = $('input#email');
+    var passwordInput = $('input#password');
 
-    loginForm.on('submit', function(event) {
+    $(".login").on('submit', function(event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
@@ -24,7 +23,7 @@ $document.ready(function() {
         $.post('api/login', {
             email: email,
             password: password
-        }).then(function(result) {
+        }).then(function(data) {
             window.location.replace(data);
         }).catch(function(err){
             console.log(err);
