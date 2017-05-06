@@ -13,6 +13,7 @@ $(document).ready(function() {
 
         //if any values are missing do not proceed
         if (!userData.email || !userData.password) {
+            alert("Please enter a valid username and password");
             return;
         }
 
