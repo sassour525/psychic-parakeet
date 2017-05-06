@@ -1,10 +1,8 @@
 $(document).ready(function() {
-    // var loginForm = $('login.form');
     var emailInput = $('input#email');
     var passwordInput = $('input#password');
 
-    //grab values from the loginForm once submitted
-    $('.login').on('submit', function(event) {
+    $(".login").on('submit', function(event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
