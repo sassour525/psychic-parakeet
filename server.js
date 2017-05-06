@@ -2,14 +2,12 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var session = require("express-session");
-
 var methodOverride = require('method-override');
 
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-
 var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
@@ -36,11 +34,6 @@ app.set('view engine', 'handlebars');
 var routes = require("./controller/planado_controller.js");
 
 app.use("/", routes);
-
-// Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
-
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

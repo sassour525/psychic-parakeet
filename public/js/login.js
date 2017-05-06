@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     var emailInput = $('input#email');
     var passwordInput = $('input#password');
@@ -10,8 +9,11 @@ $(document).ready(function() {
             password: passwordInput.val().trim()
         }
 
+        console.log(userData);
+
         //if any values are missing do not proceed
         if (!userData.email || !userData.password) {
+            alert("Please enter a valid username and password");
             return;
         }
 
