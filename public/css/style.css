@@ -1,9 +1,14 @@
+body{
+    background-color: #ccffff;
+}
+
 .nav-wrapper{ background-color: #01796f;
 
 }
-.brand-logo{ text-align: center;}
-
-
+.brand-logo{ 
+    padding: 5px, 5px, 5px, 25px;
+    margin-left: 25px;
+    text-align: center;}
 
 .card{
     float: left;
@@ -13,11 +18,14 @@
     float: right;
 }
 
-
 .main{
+    clear: both;
     background-color: #01796f;
 }
 
-.loginPage{
-    background-color: #01796f;
+#loginDiv {
+  width: 500px;
+  height: 400px;
+  background-color: #f8f7be;
+  margin:0 auto;
 }
