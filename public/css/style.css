@@ -1,13 +1,16 @@
 .nav-wrapper{ background-color: #01796f;
 
 }
-.calendar{
-    float: right;
-}
+.brand-logo{ text-align: center;}
+
+
 
 .card{
     float: left;
     width: 300px;
+}
+.calendar{
+    float: right;
 }
 
 
@@ -15,6 +18,6 @@
     background-color: #01796f;
 }
 
-.login{
+.loginPage{
     background-color: #01796f;
 }
