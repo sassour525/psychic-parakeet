@@ -33,9 +33,12 @@ router.get('/api/user_data', function(req, res) {
     if (!req.user) {
         res.json({});
     } else {
-        res.json({
-            email: req.user.email,
-            id: req.user.id
+        db.User.findOne({
+            where: {
+                id: req.user.id
+            }
+        }).then(function(user) {
+            res.json(user);
         });
     }
 });
