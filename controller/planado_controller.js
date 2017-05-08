@@ -15,7 +15,15 @@ router.get("/", function(req, res) {
 
 //route to display profile page once authenticated
 router.get('/profile', isAuthenticated, function(req, res) {
-    res.render("profile");
+    db.User.findOne({
+        where: {
+            id: req.user.id
+        }
+    }).then(function(user) {
+        console.log(user);
+        res.render("profile", {user: user, pic: 'http://shop.fox.com/imgcache/product/resized/000/873/472/catl/bobs-burgers-gene-stand-up_1000.jpg?k=1c9e9239&pid=873472&s=catl&sn=foxshop'});
+        // res.json(user);
+    });
 });
 
 //route used to authenticate user
@@ -29,19 +37,19 @@ router.post('/logout', function(req, res) {
     res.json('/');
 });
 
-router.get('/api/user_data', function(req, res) {
-    if (!req.user) {
-        res.json({});
-    } else {
-        db.User.findOne({
-            where: {
-                id: req.user.id
-            }
-        }).then(function(user) {
-            res.json(user);
-        });
-    }
-});
+// router.get('/api/user_data', function(req, res) {
+//     if (!req.user) {
+//         res.json({});
+//     } else {
+//         db.User.findOne({
+//             where: {
+//                 id: req.user.id
+//             }
+//         }).then(function(user) {
+//             res.json(user);
+//         });
+//     }
+// });
 
 // Export routes for server.js to use.
 module.exports = router;

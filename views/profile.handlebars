@@ -16,7 +16,7 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="calendar"></span>
-              <p>Welcome</p>
+              <p>Welcome {{user.dataValues.email}}</p>
             </div>
           </div>
         </div>
@@ -25,11 +25,12 @@
         <div class="col s12 m7">
           <div class="card">
             <div class="card-image">
-              <img id='card-image' src="http://thepetwiki.com/images/thumb/Parakeet.jpg/400px-Parakeet.jpg">
+              <img id='card-image' src={{pic}}>
               <span class="card-title">Profile Pic</span>
             </div>
             <div id="user-card" class="card-content">
-              <p>Hello mister or misses office worker bot.</p>
+              <p>Employee ID: {{user.dataValues.id}}</p>
+              <p>Email: {{user.dataValues.email}}</p>
             </div>
             <div class="card-action">
               <a href="#">I is link</a>
