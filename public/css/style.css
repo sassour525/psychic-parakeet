@@ -1,5 +1,5 @@
 body{
-    background-color: #ccffff;
+  background-color: #ccffff;
 }
 
 .nav-wrapper{ background-color: #01796f;
@@ -7,22 +7,22 @@ body{
 }
 
 .logout{
-border-radius: 8%;
-
+  border-radius: 8%;
 }
+
 .brand-logo{ 
-    padding: 5px, 5px, 5px, 25px;
-    margin-left: 25px;
-    text-align: center;}
+  padding: 5px, 5px, 5px, 25px;
+  margin-left: 25px;
+  text-align: center;}
 
 .card{
-    float: left;
-    width: 300px;
+  float: left;
+  width: 300px;
 }
 
 .main{
-    clear: both;
-    background-color: #01796f;
+  clear: both;
+  background-color: #01796f;
 }
 
 #loginDiv {
@@ -33,18 +33,17 @@ border-radius: 8%;
 }
 
 .card .card-image .card-title {
-    color: black;
+  color: black;
 }
 
 .first-shift{
-    float: right;
-
+  float: right;
 }
 
 #first-shift{
-    text-align: center;
+  text-align: center;
 }
 
 #second-shift {
-    text-align: center;
+  text-align: center;
 }
