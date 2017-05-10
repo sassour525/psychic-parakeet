@@ -3,57 +3,70 @@
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Planado</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn">Company Home</a></li>
-        <li><a class="waves-effect waves-light btn">Company Calendar <i class="material-icons">cloud</i>
-        </a></li>
-        <li><a class="waves-effect waves-light btn-large">Projects</a></li>
-        <li><a class="waves-effect waves-light btn-large" id="logout">Logout</a></li>
+        <li><a class="waves-effect waves-light btn" id="pto">Request PTO</a></li>
+        <li><a class="waves-effect waves-light btn" id="openShifts">Open Shifts</a></li>
+        <li><a class="waves-effect waves-light btn" id="logout">Logout</a></li>
       </ul>
     </div>
   </nav>  
       <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="calendar"></span>
-              <p>Welcome {{user.dataValues.email}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12 m7">
+      
           <div class="card">
             <div class="card-image">
               <img id='card-image' src={{pic}}>
-              <span class="card-title">Profile Pic</span>
+              <span class="card-title">Welcome {{user.dataValues.email}}</span>
             </div>
             <div id="user-card" class="card-content">
               <p>Employee ID: {{user.dataValues.id}}</p>
               <p>Email: {{user.dataValues.email}}</p>
             </div>
-            <div class="card-action">
-              <a href="#">I is link</a>
-            </div>
           </div>
-        </div>
+    <div class="col s12 m7" id= "first-shift"> 
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>First Shift</strong></h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover" id='firstTable'>
+						<thead>
+							<tr>
+								<th>Monday</th>
+								<th>Tuesday</th>
+								<th>Wednesday</th>
+								<th>Thursday</th>
+								<th>Friday</th>
+							</tr>
+						</thead>
+						<tbody>	
+{{!--need handlebars and javascript calls to populate tbody --}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+    </div>      
 
-<div class="col s12 m7">
-    <h2 class="header">Projects</h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="http://lorempixel.com/100/190/nature/6">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I is project div.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is link. is good</a>
-        </div>
-      </div>
-    </div>
-  </div>      
+        <div class="col s12 m7" id= "second-shift"> 
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Second Shift</strong></h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover" id='firstTable'>
+						<thead>
+							<tr>
+								<th>Monday</th>
+								<th>Tuesday</th>
+								<th>Wednesday</th>
+								<th>Thursday</th>
+								<th>Friday</th>
+							</tr>
+						</thead>
+						<tbody>	
+{{!--need handlebars and javascript calls to populate tbody --}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+    </div>  
 </div>
-
 </main>
