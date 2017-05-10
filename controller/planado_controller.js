@@ -24,7 +24,6 @@ router.get('/profile', isAuthenticated, function(req, res) {
     }).then(function(user) {
         console.log(user);
         res.render("profile", {user: user});
-        // res.json(user);
     });
 });
 
@@ -54,6 +53,7 @@ router.get('/api/shifts', function(req, res) {
     }
 });
 
+//get user data for use on the frontend
 router.get('/api/user_data', function(req, res) {
     if (!req.user) {
         res.json({});
