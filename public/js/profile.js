@@ -13,21 +13,21 @@ $(document).ready(function() {
         }
     });
 
-    function buildShiftList(shiftList) {
-        //create a shifts div
-        for (var i = 0; i < shiftList.length; i++) {
-            var shiftForm = $('<form>');
-            shiftForm.attr('action', '/' + shiftList[i].id + '?_method=PUT"');
-            shiftForm.attr('method', 'POST');
-            var employeeInput = $('<input>');
-            employeeInput.attr('name', 'employee');
-            var addButton = $('<button>');
-            addButton.attr('type', 'submit');
-            addButton.text('Update Shift');
-            shiftForm.append(employeeInput).append(addButton);
-            $('#shifts').append(shiftForm);
-        }
-    }
+    // function buildShiftList(shiftList) {
+    //     //create a shifts div
+    //     for (var i = 0; i < shiftList.length; i++) {
+    //         var shiftForm = $('<form>');
+    //         shiftForm.attr('action', '/' + shiftList[i].id + '?_method=PUT"');
+    //         shiftForm.attr('method', 'POST');
+    //         var employeeInput = $('<input>');
+    //         employeeInput.attr('name', 'employee');
+    //         var addButton = $('<button>');
+    //         addButton.attr('type', 'submit');
+    //         addButton.text('Update Shift');
+    //         shiftForm.append(employeeInput).append(addButton);
+    //         $('#shifts').append(shiftForm);
+    //     }
+    // }
 
     //log the user out
     $('#logout').on('click', function() {
