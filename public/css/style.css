@@ -32,8 +32,8 @@ border-radius: 8%;
   margin:0 auto;
 }
 
-.card-title {
-    color: red;
+.card .card-image .card-title {
+    color: black;
 }
 
 .first-shift{

@@ -16,6 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     salary: DataTypes.BOOLEAN,
     pay: DataTypes.INTEGER,
     clock: DataTypes.BOOLEAN,
+    profilePic: DataTypes.STRING,
     hours: DataTypes.INTEGER,
     // The email cannot be null, and must be a proper email before creation
     email: {
