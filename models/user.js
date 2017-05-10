@@ -53,7 +53,8 @@ module.exports = function(sequelize, DataTypes) {
         //  User has one company
         //  User has many shifts
         associate: function(models){
-          User.hasMany(models.Shift, {
+          User.hasMany(models.Shift, {});
+          User.hasOne(models.Availability, {
             onDelete: "cascade"
           });
         }
