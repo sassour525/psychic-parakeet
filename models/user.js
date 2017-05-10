@@ -51,10 +51,12 @@ module.exports = function(sequelize, DataTypes) {
   //-------------------------------------
     classMethods: {
         //  User has one company
-        associate: function(models){
-            
-        }
         //  User has many shifts
+        associate: function(models){
+          User.hasMany(models.Shift, {
+            onDelete: "cascade"
+          });
+        }
     }
   });
   return User;
