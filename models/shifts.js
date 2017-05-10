@@ -1,11 +1,9 @@
 //=========================================================
-//                  COMPANY MODEL
+//                  SHIFTS MODEL
 //=========================================================
 module.exports = function(sequelize, DataTypes){
-    var Company = sequelize.define("Company", {
-        //  Company Identity
-        name: dataTypes.STRING,
-        founder: dataTypes.STRING
+    var Shift = sequelize.define("Shift", {
+        //  Shift
     },{
 //          CONFIGURE METHODS
 //-------------------------------------
@@ -13,5 +11,5 @@ module.exports = function(sequelize, DataTypes){
             //  add associate
         }
     });
-    return Company;
+    return Shift;
 }
