@@ -13,12 +13,14 @@
       
           <div class="card">
             <div class="card-image">
-              <img id='card-image' src={{pic}}>
-              <span class="card-title">Welcome {{user.dataValues.email}}</span>
+              <img id='card-image' src={{user.profilePic}}>
+              <span class="card-title"></span>
             </div>
             <div id="user-card" class="card-content">
-              <p>Employee ID: {{user.dataValues.id}}</p>
-              <p>Email: {{user.dataValues.email}}</p>
+							<h4>Welcome {{user.name}}</h4>
+              <p>Employee ID: {{user.id}}</p>
+              <p>Email: {{user.email}}</p>
+							<p>Manager: {{user.boss}}</p>
             </div>
           </div>
     <div class="col s12 m7" id= "first-shift"> 
@@ -27,7 +29,8 @@
 					<h3 class="panel-title"><strong>Morning</strong></h3>
 				</div>
 				<div class="panel-body">
-					<table class= "bordered" id='firstTable'>
+
+					<table class="table bordered centered" id='firstTable'>
 						<thead>
 							<tr>
 								<th>Monday</th>
@@ -40,11 +43,11 @@
 						<tbody>	
 {{!--need handlebars and javascript calls to populate tbody --}}
                 <tr>
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
+								 <td id="mon-morn"><i class="material-icons">stop</i></td>
+                 <td id="tue-morn"><i class="material-icons">stop</i></td>
+                 <td id="wed-morn"><i class="material-icons">stop</i></td>
+                 <td id="thur-morn"><i class="material-icons">stop</i></td>
+                 <td id="fri-morn"><i class="material-icons">stop</i></td>
                 </tr> 
 						</tbody>
 					</table>
@@ -58,7 +61,7 @@
 					<h3 class="panel-title"><strong>Afternoon</strong></h3>
 				</div>
 				<div class="panel-body">
-					<table class= "bordered" id='firstTable'>
+					<table class="table bordered centered" id='firstTable'>
 						<thead>
 							<tr>
 								<th>Monday</th>
@@ -71,18 +74,18 @@
 						<tbody>	
 {{!--need handlebars and javascript calls to populate tbody --}}
                <tr> 
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
-                 <td> * </td>
+                 <td id="mon-night"><i class="material-icons">stop</i></td>
+                 <td id="tue-night"><i class="material-icons">stop</i></td>
+                 <td id="wed-night"><i class="material-icons">stop</i></td>
+                 <td id="thur-night"><i class="material-icons">stop</i></td>
+                 <td id="fri-night"><i class="material-icons">stop</i></td>
                </tr>   
 						</tbody>
 					</table>
 				</div>
 			</div>
     </div> 
-            <div class="col s12 m7" id= "second-shift"> 
+		<div class="col s12 m7" id="manager-shift" hidden="true"> 
 			<div class="panel panel-danger">
 				<div class="panel-heading">
 					<h3 class="panel-title"><strong>Full Schedule</strong></h3>

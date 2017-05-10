@@ -18,10 +18,12 @@ router.get('/profile', isAuthenticated, function(req, res) {
     db.User.findOne({
         where: {
             id: req.user.id
-        }
+        },
+        raw: true,
+        include: [db.Shift, db.Availability]
     }).then(function(user) {
         console.log(user);
-        res.render("profile", {user: user, pic: 'http://shop.fox.com/imgcache/product/resized/000/873/472/catl/bobs-burgers-gene-stand-up_1000.jpg?k=1c9e9239&pid=873472&s=catl&sn=foxshop'});
+        res.render("profile", {user: user});
         // res.json(user);
     });
 });
@@ -42,13 +44,15 @@ router.get('/api/shifts', function(req, res) {
     if (!req.user) {
         res.json({});
     } else {
-        db.Shift.findAll({}).then(function(shifts) {
+        db.Shift.findAll({
+            where: {
+                userId: req.user.id
+            }
+        }).then(function(shifts) {
             res.json(shifts);
         });
     }
 });
-
-//route to set shifts
 
 router.get('/api/user_data', function(req, res) {
     if (!req.user) {
