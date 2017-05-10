@@ -3,12 +3,18 @@
 //=========================================================
 module.exports = function(sequelize, DataTypes){
     var Shift = sequelize.define("Shift", {
-        //  Shift
+        //  Day
+        weekday: DataTypes.STRING,
+        //  Morning or Night
+        night: DataTypes.BOOLEAN,
     },{
-//          CONFIGURE METHODS
+//          CONFIGURE ASSOCIATIONS
 //-------------------------------------
         classMethods: {
-            //  add associate
+            //  shift has many users
+            associate: function(models){
+                Shift.belongsTo(models.User, {});
+            }
         }
     });
     return Shift;
