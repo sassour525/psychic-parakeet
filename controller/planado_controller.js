@@ -37,19 +37,32 @@ router.post('/logout', function(req, res) {
     res.json('/');
 });
 
-// router.get('/api/user_data', function(req, res) {
-//     if (!req.user) {
-//         res.json({});
-//     } else {
-//         db.User.findOne({
-//             where: {
-//                 id: req.user.id
-//             }
-//         }).then(function(user) {
-//             res.json(user);
-//         });
-//     }
-// });
+//route to get shifts
+router.get('/api/shifts', function(req, res) {
+    if (!req.user) {
+        res.json({});
+    } else {
+        db.Shift.findAll({}).then(function(shifts) {
+            res.json(shifts);
+        });
+    }
+});
+
+//route to set shifts
+
+router.get('/api/user_data', function(req, res) {
+    if (!req.user) {
+        res.json({});
+    } else {
+        db.User.findOne({
+            where: {
+                id: req.user.id
+            }
+        }).then(function(user) {
+            res.json(user);
+        });
+    }
+});
 
 // Export routes for server.js to use.
 module.exports = router;
