@@ -4,8 +4,8 @@
 module.exports = function(sequelize, DataTypes){
     var Company = sequelize.define("Company", {
         //  Company Identity
-        name: dataTypes.STRING,
-        founder: dataTypes.STRING
+        name: DataTypes.STRING,
+        founder: DataTypes.STRING
     },{
 //          CONFIGURE METHODS
 //-------------------------------------
