@@ -3,12 +3,22 @@
 //=========================================================
 module.exports = function(sequelize, DataTypes){
     var Shift = sequelize.define("Shift", {
-        //  Shift
+        //  Date
+        date: DataTypes.STRING,
+        //  Time
+        time: DataTypes.INTEGER,
+        //  User ID
+        user_ID: DataTypes.STRING,
     },{
-//          CONFIGURE METHODS
+//          CONFIGURE ASSOCIATIONS
 //-------------------------------------
         classMethods: {
-            //  add associate
+            //  shift has many users
+            associate: function(models){
+                Shift.hasMany(models.User, {
+                    onDelete: "cascade"
+                });
+            }
         }
     });
     return Shift;

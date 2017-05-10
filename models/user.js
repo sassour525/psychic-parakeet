@@ -4,6 +4,19 @@ var bcrypt = require("bcrypt-nodejs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    //  User Identity
+    //  email, password @ end
+    name: DataTypes.STRING,
+    company: DataTypes.STRING,
+    //  Management
+    boss: DataTypes.STRING,
+    manager: DataTypes.BOOLEAN,
+    //  Stats
+    personality: DataTypes.INTEGER,
+    salary: DataTypes.BOOLEAN,
+    pay: DataTypes.INTEGER,
+    clock: DataTypes.BOOLEAN,
+    hours: DataTypes.INTEGER,
     // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
@@ -14,10 +27,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     // The password cannot be null
     password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    },
+    {
     // Creating a custom method for our User model. This will check if an unhashed password entered by
     // The user can be compared to the hashed password stored in our database
     instanceMethods: {
@@ -32,6 +46,17 @@ module.exports = function(sequelize, DataTypes) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
         cb(null, options);
       }
+    },
+  //          CONFIGURE ASSOCIATIONS
+  //-------------------------------------
+    classMethods: {
+        //  User has one company
+        //  User has many shifts
+        associate: function(models){
+          User.hasMany(models.Shift, {
+            onDelete: "cascade"
+          });
+        }
     }
   });
   return User;
