@@ -20,18 +20,6 @@ $(document).ready(function () {
 
   //update the logged in users availability
   $('#submit-availability').on("click", function () {
-
-    // var availableDays = ['monMorn', 'tueMorn', 'wedMorn', 'thurMorn', 'friMorn', 'monAn', 'tueAn', 'wedAn', 'thurAn', 'friAn'];
-    // for (var i = 0; i < availableDays.length; i++) {
-    //   console.log('#myCheckbox-' + availableDays[i]);
-    //   console.log(availableDays[i]);
-    //   if ($('#myCheckbox-' + availableDays[i]).is(':checked')) {
-    //     newAvailability.availableDays[i] = 1;
-    //   } else {
-    //     newAvailability.availableDays[i] = 0;
-    //   }
-    // }
-
     var newAvailability = {};
 
     if ($("#myCheckbox-monMorn").is(':checked')) {
