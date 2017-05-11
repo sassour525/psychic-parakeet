@@ -20,8 +20,50 @@
         <p>Employee ID: {{user.id}}</p>
         <p>Email: {{user.email}}</p>
         <p>Manager: {{user.boss}}</p>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn" href="#modal1">Update Availability</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Update Availability</h4>
+            <p>Please input your availability for this week below.</p>
+            <table class="bordered centered" id='firstTable'>
+            <thead>
+              <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" id="myCheckbox-mon-morn" class="filled-in" /><label  for="myCheckbox-mon-morn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-tue-morn" class="filled-in" /><label  for="myCheckbox-tue-morn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-wed-morn" class="filled-in" /><label  for="myCheckbox-wed-morn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-thur-morn" class="filled-in" /><label  for="myCheckbox-thur-morn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-fri-morn" class="filled-in" /><label  for="myCheckbox-fri-morn"></label></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" id="myCheckbox-mon-afternoon" class="filled-in" /><label  for="myCheckbox-mon-afternoon"></label></td>
+                <td><input type="checkbox" id="myCheckbox-tue-afternoon" class="filled-in" /><label  for="myCheckbox-tue-afternoon"></label></td>
+                <td><input type="checkbox" id="myCheckbox-wed-afternoon" class="filled-in" /><label  for="myCheckbox-wed-afternoon"></label></td>
+                <td><input type="checkbox" id="myCheckbox-thur-afternoon" class="filled-in" /><label  for="myCheckbox-thur-afternoon"></label></td>
+                <td><input type="checkbox" id="myCheckbox-fri-afternoon" class="filled-in" /><label  for="myCheckbox-fri-afternoon"></label></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
+
+    
     <div class="col s12 m7" id="first-shift">
       <div class="panel panel-danger">
         <div class="panel-heading">
@@ -116,5 +158,8 @@
         </div>
       </div>
     </div>
+
+
+
   </div>
 </main>

@@ -53,6 +53,34 @@ router.get('/api/shifts', function (req, res) {
   }
 });
 
+//route to update availability
+router.put("/api/availability", function (req, res) {
+  if (!req.user) {
+    res.json({});
+  } else {
+    console.log(req.body);
+    var availability = req.body
+    db.Availability.update({
+      monday_Morn: availability.monMorn, 
+      monday_Eve: availability.tueMorn, 
+      tuesday_Morn: availability.wedMorn, 
+      tuesday_Eve: availability.thurMorn, 
+      wednesday_Morn: availability.friMorn, 
+      wednesday_Eve: availability.monAn, 
+      thursday_Morn: availability.tueAn, 
+      thursday_Eve: availability.wedAn, 
+      friday_Morn: availability.thurAn, 
+      friday_Eve: availability.friAn
+    }, {
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function (result) {
+      res.json(result);
+    });
+  }
+});
+
 //get user data for use on the frontend
 router.get('/api/user_data', function (req, res) {
   if (!req.user) {
