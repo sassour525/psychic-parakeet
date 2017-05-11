@@ -27,3 +27,4 @@ create table companies(
     founder varchar(50),		# name of initial register
     date timestamp				# timestamp when created
 );
+
