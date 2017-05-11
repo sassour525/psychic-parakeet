@@ -19,56 +19,68 @@ $(document).ready(function () {
   });
 
   //update the logged in users availability
-  $('#submit-availability').on("click", function() {
-    console.log("YOU MADE IT");
+  $('#submit-availability').on("click", function () {
+
+    // var availableDays = ['monMorn', 'tueMorn', 'wedMorn', 'thurMorn', 'friMorn', 'monAn', 'tueAn', 'wedAn', 'thurAn', 'friAn'];
+    // for (var i = 0; i < availableDays.length; i++) {
+    //   console.log('#myCheckbox-' + availableDays[i]);
+    //   console.log(availableDays[i]);
+    //   if ($('#myCheckbox-' + availableDays[i]).is(':checked')) {
+    //     newAvailability.availableDays[i] = 1;
+    //   } else {
+    //     newAvailability.availableDays[i] = 0;
+    //   }
+    // }
+
     var newAvailability = {};
-    if ($("#myCheckbox-mon-morn").is(':checked')) {
+
+    if ($("#myCheckbox-monMorn").is(':checked')) {
       newAvailability.monMorn = 1
     } else {
       newAvailability.monMorn = 0
     }
-    if ($("#myCheckbox-tue-morn").is(':checked')) {
-       newAvailability.tueMorn = 1
+    if ($("#myCheckbox-tueMorn").is(':checked')) {
+      newAvailability.tueMorn = 1
     } else {
       newAvailability.tueMorn = 0
     }
-    if ($("#myCheckbox-wed-morn").is(':checked')) {
-         newAvailability.wedMorn = 1
+    if ($("#myCheckbox-wedMorn").is(':checked')) {
+      newAvailability.wedMorn = 1
     } else {
       newAvailability.wedMorn = 0
     }
-    if ($("#myCheckbox-thur-morn").is(':checked')) {
-         newAvailability.thurMorn = 1
+    if ($("#myCheckbox-thurMorn").is(':checked')) {
+      newAvailability.thurMorn = 1
     } else {
       newAvailability.thurMorn = 0
     }
-    if ($("#myCheckbox-fri-morn").is(':checked')) {
-        newAvailability.friMorn = 1
+    if ($("#myCheckbox-friMorn").is(':checked')) {
+      newAvailability.friMorn = 1
     } else {
       newAvailability.friMorn = 0
     }
-    if ($("#myCheckbox-mon-afternoon").is(':checked')) {
-       newAvailability.monAn = 1
+    if ($("#myCheckbox-monAn").is(':checked')) {
+      newAvailability.monAn = 1
     } else {
       newAvailability.monAn = 0
     }
-    if ($("#myCheckbox-tue-afternoon").is(':checked')) {
-       newAvailability.tueAn = 1
+    if ($("#myCheckbox-tueAn").is(':checked')) {
+      newAvailability.tueAn = 1
     } else {
       newAvailability.tueAn = 0
     }
-    if ($("#myCheckbox-wed-afternoon").is(':checked')) {
-       newAvailability.wedAn = 1
+    if ($("#myCheckbox-wedAn").is(':checked')) {
+      newAvailability.wedAn = 1
     } else {
       newAvailability.wedAn = 0
     }
-    if ($("#myCheckbox-thur-afternoon").is(':checked')) {
-       newAvailability.thurAn = 1
+    if ($("#myCheckbox-thurAn").is(':checked')) {
+      newAvailability.thurAn = 1
     } else {
       newAvailability.thurAn = 0
     }
-    if ($("#myCheckbox-friday-afternoon").is(':checked')) {
-       newAvailability.friAn = 1
+    if ($("#myCheckbox-fridayAn").is(':checked')) {
+      newAvailability.friAn = 1
     } else {
       newAvailability.friAn = 0
     }
@@ -78,7 +90,7 @@ $(document).ready(function () {
       method: "PUT",
       url: "/api/availability",
       data: newAvailability
-    }).done(function() {
+    }).done(function () {
       window.location.href = "/profile";
     });
   });
