@@ -13,6 +13,7 @@ $(document).ready(function () {
       $('.timeOffIcon').hide();
       $('#availabilityButton').hide();
       $('#manager-shift').show();
+      $('.setSchedule').show();
       //  Run function to get all employee data
       $.get('api/shifts_all').then(function (shifts) {
         var shiftList = shifts;
