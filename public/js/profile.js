@@ -10,12 +10,28 @@ $(document).ready(function () {
       $('#first-shift').hide();
       $('#second-shift').hide();
       $('#manager-shift').show();
+      //  Run function to get all employee data
+      $.get('api/shifts_all').then(function (shifts) {
+        var shiftList = shifts;
+        console.log(shiftList);
+        displayEmployeeShifts(shiftList);
+      });
     }
-    $.get('api/shifts').then(function (shifts) {
-      var shiftList = shifts;
-      console.log(shiftList);
-      displayShifts(shiftList);
-    });
+    else{
+      $.get('api/shifts').then(function (shifts) {
+        var shiftList = shifts;
+        console.log(shiftList);
+        //  If its the manager show his working times
+        console.log(userData.manager);
+        /*
+        if(userData.manager){ displayManagerShifts(shiftList); }
+        //  else run the employee shift populator
+        else{ displayShifts(shiftList); }
+        */
+
+        displayShifts(shiftList);
+      });
+    }
   });
 
   //update the logged in users availability
@@ -118,6 +134,45 @@ $(document).ready(function () {
         }
       }
     }
+  }
+
+  //    DISPLAY EMPLOYEE SHIFTS
+  //----------------------------------
+  //  populates manager shift schedule
+  function displayEmployeeShifts(shiftList){
+    for (var i = 0; i < shiftList.length; i++){
+      console.log(shiftList[i]);
+      if(shiftList[i].weekday == "Monday"){
+        if(!shiftList[i].night){ $("#manager-mon-am").html(namify(shiftList[i].UserId)); }
+        else{ $("#manager-mon-pm").html(namify(shiftList[i].UserId)); }
+      }
+      if(shiftList[i].weekday == "Tuesday"){
+        if(!shiftList[i].night){ $("#manager-tues-am").html(namify(shiftList[i].UserId)); }
+        else{ $("#manager-tues-pm").html(namify(shiftList[i].UserId)); }
+      }
+      if(shiftList[i].weekday == "Wednesday"){
+        if(!shiftList[i].night){ $("#manager-wed-am").html(namify(shiftList[i].UserId)); }
+        else{ $("#manager-wed-pm").html(namify(shiftList[i].UserId)); }
+      }
+      if(shiftList[i].weekday == "Thursday"){
+        if(!shiftList[i].night){ $("#manager-thurs-am").html(namify(shiftList[i].UserId)); }
+        else{ $("#manager-thurs-pm").html(namify(shiftList[i].UserId)); }
+      }
+      if(shiftList[i].weekday == "Friday"){
+        if(!shiftList[i].night){ $("#manager-fri-am").html(namify(shiftList[i].UserId)); }
+        else{ $("#manager-fri-pm").html(namify(shiftList[i].UserId)); }
+      }
+    }
+  }
+
+  //    EMPLOYEE ID - > NAME
+  //----------------------------------
+  //  changes user id to match a name
+  function namify(userId){
+    if(userId == 1){ return "Gene"; }
+    if(userId == 2){ return "Louise"; }
+    if(userId == 3){ return "Tina"; }
+    if(userId == 4){ return "Bob"; }
   }
 
   //log the user out

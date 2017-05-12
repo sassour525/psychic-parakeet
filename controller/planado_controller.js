@@ -53,6 +53,20 @@ router.get('/api/shifts', function (req, res) {
   }
 });
 
+//    GET ALL SHITFS
+//------------------------
+//route to get ALL shifts (for manager)
+router.get('/api/shifts_all', function (req, res) {
+  if (!req.user) {
+    res.json({});
+  } else {
+    db.Shift.findAll({}).then(function (shifts) {
+      res.json(shifts);
+    });
+  }
+});
+
+
 //route to update availability
 router.put("/api/availability", function (req, res) {
   if (!req.user) {
