@@ -4,7 +4,7 @@
       <a href="#!" class="brand-logo">Planado - {{user.company}}</a>
       <ul class="right hide-on-med-and-down">
         <li><a id='availabilityButton' class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
-        <li class="setSchedule" hidden="true"><a class="waves-effect waves-light btn setSchedule" href="#modal2">Set Schedule</a></li>
+        <li><a class="waves-effect waves-light btn setSchedule" href="#modal2">Set Schedule</a></li>
         <li><a class="waves-effect waves-light btn" id="logout">Logout</a></li>
       </ul>
     </div>
@@ -67,9 +67,36 @@
           <div class="modal-content">
             <h4>Set this weeks schedule</h4>
             <p>Please schedule employees for the week below.</p>
+            <ul>
+              <li>Monday Morning: </li>
+              <select name="mondayMorn" id="mondayMorn">
+              </select> 
+              <li>Monday Afternoon: </li>
+              <select name="mondayAfternoon" id="mondayAfternoon"></select>
+              <br>
+              <li>Tuesday Morning: </li>
+              <select name="tuesdayMorn" id="tuesdayMorn"></select>
+              <li>Tuesday Afternoon: </li>
+              <select name="tuesdayAfternoon" id="tuesdayAfternoon"></select>
+              <br>
+              <li>Wednesday Morning: </li>
+              <select name="wednesdayMorn" id="wednesdayMorn"></select>
+              <li>Wednesday Afternoon: </li>
+              <select name="wednesdayAfternoon" id="wednesdayAfternoon"></select>
+              <br>
+              <li>Thursday Morning: </li>
+              <select name="thursdayMorn" id="thursdayMorn"></select>
+              <li>Thursday Afternoon: </li>
+              <select name="thursdayAfternoon" id="thursdayAfternoon"></select>
+              <br>
+              <li>Friday Morning: </li>
+              <select name="fridayMorn" id="fridayMorn"></select>
+              <li>Friday Afternoon: </li>
+              <select name="fridayAfternoon" id="fridayAfternoon"></select>
+            </ul>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>
+            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-schedule">Submit</button>
           </div>
         </div>
       </div>

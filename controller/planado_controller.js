@@ -95,6 +95,45 @@ router.put("/api/availability", function (req, res) {
   }
 });
 
+//route to update shifts
+router.put("/api/shift_update", function (req, res) {
+  if (!req.user) {
+    res.json({});
+  } else {
+    console.log(req.body);
+    var shifts = req.body
+    var i = 1;
+    for (var prop in shifts) {
+      console.log("UserID:" + shifts[prop]);
+      console.log(i);
+      db.Shift.update({
+        UserId: shifts[prop]
+      }, {
+        where: {
+          id: i
+        }
+      }).then(function (result) {
+        res.json(result);
+      });
+      i++;
+    }
+  }
+});
+
+//get all user objects
+router.get('/api/all_users', function(req, res) {
+   if (!req.user) {
+    res.json({});
+  } else {
+    db.User.findAll({
+      include: [db.Availability]
+    }).then(function(users) {
+      res.json(users);
+    });
+  }
+});
+
+
 //get user data for use on the frontend
 router.get('/api/user_data', function (req, res) {
   if (!req.user) {
