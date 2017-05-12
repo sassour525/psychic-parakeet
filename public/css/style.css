@@ -2,12 +2,14 @@ body{
   background-color: #ccffff;
 }
 
-.nav-wrapper{ background-color: #01796f;
+.nav-wrapper{ background-color: #022454;
 
 }
 
 .logout{
-  border-radius: 8%;
+  border-radius: 50px;
+  background-color: #99ccff;
+  font-family: 'Fontdiner Swanky';
 }
 
 .brand-logo{ 
@@ -28,12 +30,19 @@ body{
 #loginDiv {
   width: 500px;
   height: 400px;
-  background-color: #f8f7be;
-  margin:0 auto;
+  border-radius: 50px;
+  background-color: #99ccff;
+  font-family: 'Fontdiner Swanky';
+  text-align: center;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
 }
 
 .card .card-image .card-title {
   color: black;
+  margin-left: 10px;
 }
 
 .first-shift{
@@ -42,8 +51,26 @@ body{
 
 #first-shift{
   text-align: center;
+  font-family: 'Fontdiner Swanky';
+  margin-left: 30px;
 }
 
 #second-shift {
   text-align: center;
+  font-family: 'Fontdiner Swanky';
+  margin-left: 30px;
 }
+
+#manager-shift {
+  text-align: center;
+  font-family: 'Fontdiner Swanky';
+  margin-left: 30px;
+
+}
+.material-icons {
+  font-size: 45px
+}
+
+.h3 {
+  font-family: 'Fontdiner Swanky'
+  }

@@ -9,6 +9,9 @@ $(document).ready(function () {
     if (userData.manager) {
       $('#first-shift').hide();
       $('#second-shift').hide();
+      $('.scheduleIcon').hide();
+      $('.timeOffIcon').hide();
+      $('#availabilityButton').hide();
       $('#manager-shift').show();
       //  Run function to get all employee data
       $.get('api/shifts_all').then(function (shifts) {
@@ -18,20 +21,12 @@ $(document).ready(function () {
       });
     }
     else{
-      $.get('api/shifts').then(function (shifts) {
-        var shiftList = shifts;
-        console.log(shiftList);
-        //  If its the manager show his working times
-        console.log(userData.manager);
-        /*
-        if(userData.manager){ displayManagerShifts(shiftList); }
-        //  else run the employee shift populator
-        else{ displayShifts(shiftList); }
-        */
-
-        displayShifts(shiftList);
-      });
-    }
+    $.get('api/shifts').then(function (shifts) {
+      var shiftList = shifts;
+      console.log(shiftList);
+      displayShifts(shiftList);
+    });
+  }
   });
 
   //update the logged in users availability
@@ -136,6 +131,7 @@ $(document).ready(function () {
     }
   }
 
+
   //    DISPLAY EMPLOYEE SHIFTS
   //----------------------------------
   //  populates manager shift schedule
@@ -174,6 +170,11 @@ $(document).ready(function () {
     if(userId == 3){ return "Tina"; }
     if(userId == 4){ return "Bob"; }
   }
+
+  //set schedule
+  $('.setSchedule').on("click", function() {
+    console.log("MADE IT");
+  });
 
   //log the user out
   $('#logout').on('click', function () {

@@ -1,10 +1,10 @@
 <main>
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Planado</a>
+      <a href="#!" class="brand-logo">Planado - {{user.company}}</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
-        <li><a class="waves-effect waves-light btn" id="openShifts">Open Shifts</a></li>
+        <li><a id='availabilityButton' class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
+        <li class="setSchedule" hidden="true"><a class="waves-effect waves-light btn setSchedule" href="#modal2">Set Schedule</a></li>
         <li><a class="waves-effect waves-light btn" id="logout">Logout</a></li>
       </ul>
     </div>
@@ -21,9 +21,10 @@
         <p>Email: {{user.email}}</p>
         <p>Manager: {{user.boss}}</p>
         <br>
-        <p><i class="material-icons">schedule</i> Scheduled to work.</p>
-        <p><i class="material-icons">stop</i> Not scheduled to work.</p>
-        <!-- Modal Structure -->
+        <p class="scheduleIcon"><i class="material-icons scheduleIcon">schedule</i> Scheduled to work.</p>
+        <p class="timeOffIcon"><i class="material-icons timeOffIcon">stop</i> Not scheduled to work.</p>
+
+        <!-- Modal 1 Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Update Availability</h4>
@@ -40,18 +41,18 @@
             </thead>
             <tbody>
               <tr>
-                <td><input type="checkbox" id="myCheckbox-monMorn" class="filled-in" /><label  for="myCheckbox-monMorn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-tueMorn" class="filled-in" /><label  for="myCheckbox-tueMorn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-wedMorn" class="filled-in" /><label  for="myCheckbox-wedMorn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-thurMorn" class="filled-in" /><label  for="myCheckbox-thurMorn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-friMorn" class="filled-in" /><label  for="myCheckbox-friMorn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-monMorn" class="filled-in"/><label  for="myCheckbox-monMorn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-tueMorn" class="filled-in"/><label  for="myCheckbox-tueMorn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-wedMorn" class="filled-in"/><label  for="myCheckbox-wedMorn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-thurMorn" class="filled-in"/><label  for="myCheckbox-thurMorn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-friMorn" class="filled-in"/><label  for="myCheckbox-friMorn"></label></td>
               </tr>
               <tr>
-                <td><input type="checkbox" id="myCheckbox-monAn" class="filled-in" /><label  for="myCheckbox-monAn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-tueAn" class="filled-in" /><label  for="myCheckbox-tueAn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-wedAn" class="filled-in" /><label  for="myCheckbox-wedAn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-thurAn" class="filled-in" /><label  for="myCheckbox-thurAn"></label></td>
-                <td><input type="checkbox" id="myCheckbox-friAn" class="filled-in" /><label  for="myCheckbox-friAn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-monAn" class="filled-in"/><label  for="myCheckbox-monAn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-tueAn" class="filled-in"/><label  for="myCheckbox-tueAn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-wedAn" class="filled-in"/><label  for="myCheckbox-wedAn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-thurAn" class="filled-in"/><label  for="myCheckbox-thurAn"></label></td>
+                <td><input type="checkbox" id="myCheckbox-friAn" class="filled-in"/><label  for="myCheckbox-friAn"></label></td>
               </tr>
             </tbody>
           </table>
@@ -60,13 +61,24 @@
             <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>
           </div>
         </div>
+
+        <!-- Modal 2 Structure -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Set this weeks schedule</h4>
+            <p>Please schedule employees for the week below.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
-
-    
+ 
     <div class="col s12 m7" id="first-shift">
       <div class="panel panel-danger">
         <div class="panel-heading">
+					<h3 class="panel-title"><strong>{{user.name}}'s Schedule</strong></h3>
           <h3 class="panel-title"><strong>Morning</strong></h3>
         </div>
         <div class="panel-body">
