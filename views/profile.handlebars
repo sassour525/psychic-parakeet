@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Planado</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
+        <li><a id='availabilityButton' class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
         <li><a class="waves-effect waves-light btn" id="openShifts">Open Shifts</a></li>
         <li><a class="waves-effect waves-light btn" id="logout">Logout</a></li>
       </ul>
@@ -21,8 +21,8 @@
         <p>Email: {{user.email}}</p>
         <p>Manager: {{user.boss}}</p>
         <br>
-        <p><i class="material-icons">schedule</i> Scheduled to work.</p>
-        <p><i class="material-icons">stop</i> Not scheduled to work.</p>
+        <p class="scheduleIcon"><i class="scheduleIcon" class="material-icons">schedule</i> Scheduled to work.</p>
+        <p class="timeOffIcon"><i class="timeOffIcon" class="material-icons">stop</i> Not scheduled to work.</p>
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">

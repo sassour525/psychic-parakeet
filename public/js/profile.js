@@ -9,6 +9,9 @@ $(document).ready(function () {
     if (userData.manager) {
       $('#first-shift').hide();
       $('#second-shift').hide();
+      $('.scheduleIcon').hide();
+      $('.timeOffIcon').hide();
+      $('#availabilityButton').hide();
       $('#manager-shift').show();
     }
     $.get('api/shifts').then(function (shifts) {
