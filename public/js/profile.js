@@ -78,7 +78,7 @@ $(document).ready(function () {
     } else {
       newAvailability.thurAn = 0
     }
-    if ($("#myCheckbox-fridayAn").is(':checked')) {
+    if ($("#myCheckbox-friAn").is(':checked')) {
       newAvailability.friAn = 1
     } else {
       newAvailability.friAn = 0
