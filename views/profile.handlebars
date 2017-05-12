@@ -4,7 +4,7 @@
       <a href="#!" class="brand-logo">Planado - {{user.company}}</a>
       <ul class="right hide-on-med-and-down">
         <li><a id='availabilityButton' class="waves-effect waves-light btn" href="#modal1">Update Availability</a></li>
-        <li><a class="waves-effect waves-light btn" id="openShifts">Open Shifts</a></li>
+        <li class="setSchedule" hidden="true"><a class="waves-effect waves-light btn setSchedule" href="#modal2">Set Schedule</a></li>
         <li><a class="waves-effect waves-light btn" id="logout">Logout</a></li>
       </ul>
     </div>
@@ -23,7 +23,8 @@
         <br>
         <p class="scheduleIcon"><i class="material-icons scheduleIcon">schedule</i> Scheduled to work.</p>
         <p class="timeOffIcon"><i class="material-icons timeOffIcon">stop</i> Not scheduled to work.</p>
-        <!-- Modal Structure -->
+
+        <!-- Modal 1 Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>Update Availability</h4>
@@ -55,6 +56,17 @@
               </tr>
             </tbody>
           </table>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>
+          </div>
+        </div>
+
+        <!-- Modal 2 Structure -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Set this weeks schedule</h4>
+            <p>Please schedule employees for the week below.</p>
           </div>
           <div class="modal-footer">
             <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" id="submit-availability">Submit</button>

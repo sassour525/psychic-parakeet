@@ -13,12 +13,14 @@ $(document).ready(function () {
       $('.timeOffIcon').hide();
       $('#availabilityButton').hide();
       $('#manager-shift').show();
+      $('.setSchedule').show();
     }
     $.get('api/shifts').then(function (shifts) {
       var shiftList = shifts;
       console.log(shiftList);
       displayShifts(shiftList);
     });
+    
   });
 
   //update the logged in users availability
@@ -122,6 +124,11 @@ $(document).ready(function () {
       }
     }
   }
+
+  //set schedule
+  $('.setSchedule').on("click", function() {
+    console.log("MADE IT");
+  });
 
   //log the user out
   $('#logout').on('click', function () {
