@@ -21,8 +21,8 @@
         <p>Email: {{user.email}}</p>
         <p>Manager: {{user.boss}}</p>
         <br>
-        <p class="scheduleIcon"><i class="scheduleIcon" class="material-icons">schedule</i> Scheduled to work.</p>
-        <p class="timeOffIcon"><i class="timeOffIcon" class="material-icons">stop</i> Not scheduled to work.</p>
+        <p class="scheduleIcon"><i class="material-icons scheduleIcon " >schedule</i> Scheduled to work.</p>
+        <p class="timeOffIcon"><i class="material-icons timeOffIcon">stop</i> Not scheduled to work.</p>
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
           <div class="modal-content">
@@ -62,11 +62,11 @@
         </div>
       </div>
     </div>
-
-    
+ 
     <div class="col s12 m7" id="first-shift">
       <div class="panel panel-danger">
         <div class="panel-heading">
+					<h3 class="panel-title"><strong>{{user.name}}'s Schedule</strong></h3>
           <h3 class="panel-title"><strong>Morning</strong></h3>
         </div>
         <div class="panel-body">
