@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "",
-    "database": "planado",
-    "host": "127.0.0.1",
+    "username": "lrtuedd67c7q4d7w",
+    "password": "p9ph0v7ydtdxe0vu",
+    "database": "toayty0sfkyqn6zt",
+    "host": "s54ham9zz83czkff.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
