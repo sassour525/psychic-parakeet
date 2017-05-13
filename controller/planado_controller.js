@@ -76,14 +76,14 @@ router.put("/api/availability", function (req, res) {
     var availability = req.body
     db.Availability.update({
       monday_Morn: availability.monMorn, 
-      monday_Eve: availability.tueMorn, 
-      tuesday_Morn: availability.wedMorn, 
-      tuesday_Eve: availability.thurMorn, 
-      wednesday_Morn: availability.friMorn, 
-      wednesday_Eve: availability.monAn, 
-      thursday_Morn: availability.tueAn, 
-      thursday_Eve: availability.wedAn, 
-      friday_Morn: availability.thurAn, 
+      monday_Eve: availability.monAn, 
+      tuesday_Morn: availability.tuesMorn, 
+      tuesday_Eve: availability.tueAn, 
+      wednesday_Morn: availability.wedMorn, 
+      wednesday_Eve: availability.wedAn, 
+      thursday_Morn: availability.thurMorn, 
+      thursday_Eve: availability.thurAn, 
+      friday_Morn: availability.friMorn, 
       friday_Eve: availability.friAn
     }, {
       where: {
